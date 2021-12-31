@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Snake Game AI</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="control-menu">
+        <div class="btn btn-success">Start Evolution</div>
+        <div class="field">
+          <div><span class="field-label">Population Size *</span></div>
+          <input
+            type="number"
+            min="2"
+            class="input input-undefined"
+            name="populationSize"
+            id="population-size"
+            value="50"
+            placeholder="Population Size *"
+            required=""
+          />
+          <div>
+            <div class="field-description"><span>How many neural nets per generation?</span></div>
+          </div>
+        </div>
+        <div class="field">
+          <div><span class="field-label">Elitism Percent *</span></div>
+          <input
+            type="number"
+            step="1"
+            min="1"
+            max="100"
+            class="input input-undefined"
+            name="elitismPercent"
+            id="elitism-percent"
+            value="10"
+            placeholder="Elitism Percent *"
+            required=""
+          />
+          <div>
+            <div class="field-description"><span>% of top performers to use for the next generation.</span></div>
+          </div>
+        </div>
+        <div class="field">
+          <div><span class="field-label">Eat Food Score *</span></div>
+          <input
+            type="number"
+            step="1"
+            class="input input-undefined"
+            name="foodScore"
+            id="food-score"
+            value="10"
+            placeholder="Eat Food Score *"
+            required=""
+          />
+          <div>
+            <div class="field-description"><span>Awarded for eating food.</span></div>
+          </div>
+        </div>
+        <div class="field">
+          <div><span class="field-label">Move Towards Food Score *</span></div>
+          <input
+            type="number"
+            step="0.5"
+            class="input input-undefined"
+            name="moveTowardsScore"
+            id="moveTowards-score"
+            value="1"
+            placeholder="Move Towards Food Score *"
+            required=""
+          />
+          <div>
+            <div class="field-description"><span>Awarded for each step towards food.</span></div>
+          </div>
+        </div>
+        <div class="field">
+          <div><span class="field-label">Move Away Food Score *</span></div>
+          <input
+            type="number"
+            step="0.5"
+            class="input input-undefined"
+            name="moveAwayScore"
+            id="moveAway-score"
+            value="-1.5"
+            placeholder="Move Away Food Score *"
+            required=""
+          />
+          <div>
+            <div class="field-description"><span>Awarded for each step away from food.</span></div>
+          </div>
+        </div>
+        <div class="field">
+          <div><span class="field-label">Snake Starting Length *</span></div>
+          <input
+            type="number"
+            step="1"
+            min="1"
+            max="15"
+            class="input input-undefined"
+            name="initialSnakeLength"
+            id="initial-snake-length"
+            value="1"
+            placeholder="Snake Starting Length *"
+            required=""
+          />
+          <div>
+            <div class="field-description"><span>Measured in grid cells.</span></div>
+          </div>
+        </div>
+        <span class="switch active"
+          ><span class="switch-label">Snake dies when it hits a wall.</span
+          ><i class="fa fa-toggle-on fa-fw" id="border-walls"></i></span
+        ><span class="switch active"
+          ><span class="switch-label">Snake dies when it his itself.</span
+          ><i class="fa fa-toggle-on fa-fw" id="can-eat-self"></i></span
+        ><span class="switch active"
+          ><span class="switch-label">Snake grows longer when it eats.</span
+          ><i class="fa fa-toggle-on fa-fw" id="grow-when-eating"></i
+        ></span>
+      </div>
+      <div id="wrapper">
+        <div id="infos">
+          <div id="chart"></div>
+          <div id="status">
+            <p>Generation 👪<br /><span id="generation">0</span></p>
+            <p>Highest score 🙆<br /><span id="highest-score">0</span></p>
+          </div>
+        </div>
+        <hr />
+        <div id="workspace"></div>
+      </div>
+    </div>
+
+    <script src="https://liquidcarrot.io/carrot/cdn/0.3.0/carrot.js"></script>
+    <script src="lib/p5.min.js"></script>
+    <script src="lib/frappe-charts.min.iife.js"></script>
+    <script src="src/main.js" type="module"></script>
+  </body>
+</html>
